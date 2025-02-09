@@ -42,7 +42,7 @@ RUN addgroup --system nodejs && \
 
 # Install OpenSSL and build dependencies for production environment
 RUN apt-get update -y && \
-    apt-get install -y openssl libssl-dev 
+    apt-get install -y openssl libssl-dev
 
 WORKDIR /app
 
