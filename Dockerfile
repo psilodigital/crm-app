@@ -34,7 +34,7 @@ RUN apt-get update -y && \
 
 # Stage 3: Production build
 FROM node:20-slim AS production
-ENV NODE_ENV production
+ENV NODE_ENV=production
 
 # Add system user for running the app
 RUN addgroup --system nodejs && \
@@ -53,7 +53,6 @@ COPY --from=build_image --chown=nextjs:nodejs /app/node_modules ./node_modules
 COPY --from=build_image --chown=nextjs:nodejs /app/public ./public
 COPY --from=build_image --chown=nextjs:nodejs /app/.next ./.next
 COPY --from=build_image --chown=nextjs:nodejs /app/.env ./.env
-COPY --from=build_image --chown=nextjs:nodejs /app/.env.local ./.env.local
 
 # Switch to root to install pnpm globally
 USER root
