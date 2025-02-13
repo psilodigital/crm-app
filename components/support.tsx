@@ -27,18 +27,7 @@ const SupportComponent = () => {
             </Link>
           </Button>
         </div>
-        <div className="flex w-full justify-between items-center gap-2">
-          <span className="text-sm "> Find a bug? Create an issue on</span>
-          <Button asChild variant={"secondary"}>
-            <Link
-              className="border rounded-md p-2"
-              href={process.env.NEXT_PUBLIC_GITHUB_ISSUES_URL || "#"}
-              target="_blank"
-            >
-              <GitHubLogoIcon />
-            </Link>
-          </Button>
-        </div>
+
       </PopoverContent>
     </Popover>
   );
