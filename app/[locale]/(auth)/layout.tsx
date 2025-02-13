@@ -39,7 +39,6 @@ export async function generateMetadata(props: Props) {
 
 const AuthLayout = async ({ children }: { children: React.ReactNode }) => {
   //Get github stars from github api
-  const githubStars = await getGithubRepoStars();
 
   return (
     <div className="flex flex-col justify-center items-center min-h-screen w-full">
@@ -52,7 +51,6 @@ const AuthLayout = async ({ children }: { children: React.ReactNode }) => {
         </Link>
         <div className="flex items-center border rounded-md p-2 ">
           <span className="sr-only">Github stars</span>
-          {githubStars}
           <Star className="size-4" />
         </div>
         <div className="flex items-center border rounded-md p-2">

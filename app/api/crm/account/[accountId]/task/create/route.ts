@@ -29,7 +29,6 @@ export async function POST(req: Request) {
   try {
     const task = await prismadb.crm_Accounts_Tasks.create({
       data: {
-        v: 0,
         priority: priority,
         title: title,
         content,
@@ -84,8 +83,10 @@ export async function POST(req: Request) {
           id: {
             not: session.user.id,
           },
-          watching_accountsIDs: {
-            has: account,
+          watching_accounts: {
+            some: {
+              accountId: account,
+            },
           },
         },
       });
